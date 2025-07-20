@@ -1,5 +1,8 @@
 # MiniMax.io Clone
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-minimax--clone-blue?style=for-the-badge&logo=github)](https://github.com/c2s-admin/minimax-clone)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge&logo=netlify)](https://same-dvntto23ujh-latest.netlify.app)
+
 Eine pixel-perfekte Kopie der [MiniMax.io](https://www.minimax.io/) Website mit vollständig konfigurierbaren Themes und modernen Animationen.
 
 ## 🚀 Live Demo
@@ -39,8 +42,8 @@ Eine pixel-perfekte Kopie der [MiniMax.io](https://www.minimax.io/) Website mit 
 
 ### Repository klonen
 ```bash
-git clone <your-repo-url>
-cd minimax
+git clone https://github.com/c2s-admin/minimax-clone.git
+cd minimax-clone
 ```
 
 ### Dependencies installieren
