@@ -31,7 +31,7 @@ const Hero = () => {
     className,
     delay
   }: {
-    Icon: any
+    Icon: React.ComponentType<{ className?: string }>
     className: string
     delay: string
   }) => (

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { themeConfig } from '../../theme.config.js'
@@ -32,37 +32,40 @@ const Slider: React.FC<SliderProps> = ({
   const totalSlides = children.length
   const maxIndex = Math.max(0, totalSlides - slidesToShow)
 
-  const goToSlide = (index: number) => {
-    if (isTransitioning) return
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (isTransitioning) return
 
-    const newIndex = Math.max(0, Math.min(index, maxIndex))
-    if (newIndex === currentIndex) return
+      const newIndex = Math.max(0, Math.min(index, maxIndex))
+      if (newIndex === currentIndex) return
 
-    setIsTransitioning(true)
-    setCurrentIndex(newIndex)
+      setIsTransitioning(true)
+      setCurrentIndex(newIndex)
 
-    setTimeout(() => {
-      setIsTransitioning(false)
-    }, parseInt(themeConfig.animations.slider.duration) * 1000)
-  }
+      setTimeout(() => {
+        setIsTransitioning(false)
+      }, parseInt(themeConfig.animations.slider.duration) * 1000)
+    },
+    [isTransitioning, maxIndex, currentIndex]
+  )
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     const nextIndex = currentIndex + slidesToScroll
     if (nextIndex > maxIndex) {
       goToSlide(0) // Loop back to start
     } else {
       goToSlide(nextIndex)
     }
-  }
+  }, [currentIndex, slidesToScroll, maxIndex, goToSlide])
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     const prevIndex = currentIndex - slidesToScroll
     if (prevIndex < 0) {
       goToSlide(maxIndex) // Loop to end
     } else {
       goToSlide(prevIndex)
     }
-  }
+  }, [currentIndex, slidesToScroll, maxIndex, goToSlide])
 
   // Auto-play functionality
   useEffect(() => {
@@ -74,7 +77,7 @@ const Slider: React.FC<SliderProps> = ({
         }
       }
     }
-  }, [autoPlay, autoPlayInterval, currentIndex])
+  }, [autoPlay, autoPlayInterval, nextSlide])
 
   // Pause auto-play on hover
   const handleMouseEnter = () => {

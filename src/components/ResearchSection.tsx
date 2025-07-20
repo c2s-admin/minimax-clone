@@ -5,50 +5,54 @@ import Slider from './Slider'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { ArrowRight, Play } from 'lucide-react'
+import { ArrowRight, Play, Activity, Brain, Heart, Stethoscope } from 'lucide-react'
 import { themeConfig } from '../../theme.config.js'
 
 const ResearchSection = () => {
   const researchItems = [
     {
       id: 1,
-      title: 'MiniMax Hailuo 02',
-      category: 'Video Model',
-      description: 'Native 1080p | SOTA Instruction Following | Extreme Physics Mastery',
+      title: 'AI-Diagnostik 02',
+      category: 'Diagnose-Modell',
+      description: 'Präzise Diagnosestellung | Medizinische Bildanalyse | Evidenzbasierte Entscheidungen',
       image: 'https://ext.same-assets.com/235169353/3321711096.webp',
       isNew: true,
       hasVideo: true,
-      gradient: 'from-blue-500 to-blue-700'
+      gradient: 'from-primary-500 to-primary-700',
+      icon: Activity
     },
     {
       id: 2,
-      title: 'MiniMax M1',
-      category: 'Text Model',
-      description: 'Global Leading: 80K CoT Length x 1M Token Input. Top-Tier Model Performance.',
+      title: 'PflegeAssist M1',
+      category: 'Pflege-KI',
+      description: 'Intelligente Pflegepläne | Patientenüberwachung | Automatisierte Dokumentation',
       image: 'https://ext.same-assets.com/235169353/3395551096.webp',
       isNew: true,
       hasVideo: false,
-      gradient: 'from-red-500 to-red-700'
+      gradient: 'from-secondary-500 to-secondary-700',
+      icon: Heart
     },
     {
       id: 3,
-      title: 'MiniMax Speech 02',
-      category: 'Audio Model',
-      description: 'Intrinsic Zero-shot: Pioneering a New Era of AI Speech Generation',
+      title: 'MedSpeak 02',
+      category: 'Sprach-KI',
+      description: 'Medizinische Transkription | Mehrsprachige Kommunikation | Patientengespräche',
       image: 'https://ext.same-assets.com/235169353/3737711353.png',
       isNew: true,
       hasVideo: false,
-      gradient: 'from-yellow-500 to-orange-600'
+      gradient: 'from-accent-500 to-accent-700',
+      icon: Brain
     },
     {
       id: 4,
-      title: 'MiniMax MCP Server',
-      category: 'MCP',
-      description: 'Video, Image, Speech generation and Voice Cloning Tools Now Available for Developers',
+      title: 'HealthConnect API',
+      category: 'Integration',
+      description: 'Nahtlose Systemintegration | FHIR-kompatibel | Sichere Datenübertragung',
       image: 'https://ext.same-assets.com/235169353/4288870008.webp',
       isNew: true,
       hasVideo: false,
-      gradient: 'from-purple-500 to-purple-700'
+      gradient: 'from-primary-700 to-healthcare-deepBlue',
+      icon: Stethoscope
     }
   ]
 
@@ -56,23 +60,29 @@ const ResearchSection = () => {
     <div className="px-3">
       <Card className="relative overflow-hidden bg-white hover:shadow-xl transition-all duration-500 card-hover group">
         <div className="relative h-80">
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${item.image})`,
-            }}
-          />
+          {/* Background with Healthcare Theme */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
 
-          {/* Gradient Overlay */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-80`} />
+          {/* Medical Pattern Overlay */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="w-full h-full" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='M20 20h20v20H20V20zm-20 0h20v20H0V20z'/%3E%3C/g%3E%3C/svg%3E")`,
+            }}></div>
+          </div>
 
           {/* NEW Badge */}
           {item.isNew && (
             <Badge className="absolute top-4 right-4 bg-white text-primary-900 font-semibold">
-              NEW
+              NEU
             </Badge>
           )}
+
+          {/* Medical Icon */}
+          <div className="absolute top-4 left-4">
+            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
+              <item.icon className="h-6 w-6 text-white" />
+            </div>
+          </div>
 
           {/* Video Play Button */}
           {item.hasVideo && (
@@ -115,10 +125,10 @@ const ResearchSection = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-4">
-              Research
+              Forschung & Entwicklung
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The new generation full-stack self-developed model family
+              Innovative AI-Lösungen für die nächste Generation der Gesundheitsversorgung
             </p>
           </div>
 
@@ -172,25 +182,12 @@ const ResearchSection = () => {
               size="lg"
               className="bg-white hover:bg-primary-50 border-primary-200 text-primary-700 font-medium px-8 btn-hover-lift"
             >
-              Explore All Research
+              Alle Lösungen entdecken
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 1024px) {
-          .research-slider {
-            --slides-to-show: 2;
-          }
-        }
-        @media (max-width: 640px) {
-          .research-slider {
-            --slides-to-show: 1;
-          }
-        }
-      `}</style>
     </section>
   )
 }

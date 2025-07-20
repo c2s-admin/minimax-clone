@@ -2,36 +2,38 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Github, Linkedin, Mail, MessageSquare, Hash } from 'lucide-react'
+import { Github, Linkedin, Mail, MessageSquare, Hash, Activity, Heart } from 'lucide-react'
 import { themeConfig } from '../../theme.config.js'
 
 const Footer = () => {
   const footerSections = [
     {
-      title: 'Research',
+      title: 'Lösungen',
       links: [
-        { name: 'MiniMax M1', href: '#m1' },
-        { name: 'MiniMax Hailuo 02', href: '#hailuo' },
-        { name: 'Speech-02-HD', href: '#speech-hd' },
-        { name: 'Speech-02-Turbo', href: '#speech-turbo' },
+        { name: 'AI-Diagnostik 02', href: '#diagnostik' },
+        { name: 'PflegeAssist M1', href: '#pflegeassist' },
+        { name: 'MedSpeak 02', href: '#medspeak' },
+        { name: 'HealthConnect API', href: '#healthconnect' },
       ]
     },
     {
-      title: 'Product',
+      title: 'Produkte',
       links: [
-        { name: 'Chat', href: '#chat' },
-        { name: 'Agent', href: '#agent' },
-        { name: 'Audio', href: '#audio' },
-        { name: 'Hailuo Video', href: '#hailuo-video' },
-        { name: 'Talkie', href: '#talkie' },
-        { name: 'API Platform', href: '#api' },
+        { name: 'PflegeAssist Chat', href: '#pflege-chat' },
+        { name: 'MedAgent Pro', href: '#med-agent' },
+        { name: 'DiagnoseVision', href: '#diagnose-vision' },
+        { name: 'VitalSpeak', href: '#vital-speak' },
+        { name: 'TherapieAgent', href: '#therapie-agent' },
+        { name: 'PatientConnect', href: '#patient-connect' },
       ]
     },
     {
-      title: 'About Us',
+      title: 'Unternehmen',
       links: [
-        { name: 'Company', href: '#company' },
-        { name: 'What\'s New', href: '#news' },
+        { name: 'Über uns', href: '#ueber-uns' },
+        { name: 'Neuigkeiten', href: '#news' },
+        { name: 'Karriere', href: '#karriere' },
+        { name: 'Kontakt', href: '#kontakt' },
       ]
     }
   ]
@@ -39,37 +41,58 @@ const Footer = () => {
   const socialLinks = [
     { name: 'GitHub', icon: Github, href: '#github' },
     { name: 'LinkedIn', icon: Linkedin, href: '#linkedin' },
-    { name: 'Email', icon: Mail, href: '#email' },
-    { name: 'Discord', icon: Hash, href: '#discord' },
-    { name: 'Chat', icon: MessageSquare, href: '#chat' },
+    { name: 'E-Mail', icon: Mail, href: 'mailto:info@zweitmein.ng' },
+    { name: 'Community', icon: Hash, href: '#community' },
+    { name: 'Support', icon: MessageSquare, href: '#support' },
   ]
 
   return (
-    <footer className="bg-primary-900 text-white">
+    <footer className="bg-healthcare-deepBlue text-white">
       <div className="container mx-auto px-6">
         {/* Main Footer Content */}
         <div className="py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand Section */}
             <div className="lg:col-span-1">
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-white to-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-[2px] w-5 h-5">
-                    <div className="w-[8px] h-[8px] bg-primary-900 rounded-sm"></div>
-                    <div className="w-[8px] h-[8px] bg-primary-700 rounded-sm"></div>
-                    <div className="w-[8px] h-[8px] bg-primary-700 rounded-sm"></div>
-                    <div className="w-[8px] h-[8px] bg-primary-900 rounded-sm"></div>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="relative w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg">
+                  <div className="relative">
+                    <Activity className="w-6 h-6 text-white" />
+                    <Heart className="w-4 h-4 text-secondary-500 absolute -top-1 -right-1" />
                   </div>
+                  <div className="absolute inset-0 bg-secondary-500/20 rounded-xl animate-ping"></div>
                 </div>
-                <span className="text-2xl font-bold">MINIMAX</span>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-bold">
+                    {themeConfig.components.branding.companyName}
+                  </span>
+                  <span className="text-sm text-white/80">
+                    {themeConfig.components.branding.tagline}
+                  </span>
+                </div>
               </div>
+
               <p className="text-lg font-medium text-white/90 mb-6">
-                Intelligence with Everyone
+                Gesundheit durch Intelligenz
               </p>
+
               <p className="text-white/70 text-sm leading-relaxed max-w-sm">
-                Building next-generation AGI with Foundation AI models for text, audio, image, and video.
-                Empowering 50K+ global businesses with scalable, secure AI solutions.
+                Innovative KI-Lösungen für die nächste Generation der Gesundheitsversorgung.
+                Sichere, skalierbare und DSGVO-konforme Healthcare-Technologie für
+                professionelle Pflegeeinrichtungen.
               </p>
+
+              {/* Healthcare Certifications */}
+              <div className="mt-6 space-y-2">
+                <div className="flex items-center space-x-2 text-sm text-white/60">
+                  <Activity className="w-4 h-4 text-secondary-500" />
+                  <span>Medizinprodukt CE-Kennzeichnung</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-white/60">
+                  <Heart className="w-4 h-4 text-secondary-500" />
+                  <span>ISO 27001 zertifiziert</span>
+                </div>
+              </div>
             </div>
 
             {/* Footer Links */}
@@ -83,7 +106,7 @@ const Footer = () => {
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-white/70 hover:text-white transition-colors duration-200 text-sm"
+                        className="text-white/70 hover:text-white transition-colors duration-200 text-sm hover:text-secondary-500"
                       >
                         {link.name}
                       </Link>
@@ -106,10 +129,10 @@ const Footer = () => {
                   <Link
                     key={social.name}
                     href={social.href}
-                    className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200 group"
+                    className="p-2 bg-white/10 hover:bg-secondary-500/20 rounded-lg transition-colors duration-200 group"
                     aria-label={social.name}
                   >
-                    <Icon className="h-5 w-5 text-white/70 group-hover:text-white transition-colors duration-200" />
+                    <Icon className="h-5 w-5 text-white/70 group-hover:text-secondary-500 transition-colors duration-200" />
                   </Link>
                 )
               })}
@@ -118,10 +141,10 @@ const Footer = () => {
             {/* Copyright */}
             <div className="text-center md:text-right">
               <p className="text-white/60 text-sm">
-                © 2025 MiniMax. All rights reserved.
+                © 2025 zweitmein.ng - complex care solutions GmbH. Alle Rechte vorbehalten.
               </p>
               <p className="text-white/40 text-xs mt-1">
-                Built with ❤️ for the AI community
+                Mit ❤️ für die Healthcare-Community entwickelt
               </p>
             </div>
           </div>
@@ -131,22 +154,35 @@ const Footer = () => {
         <div className="border-t border-white/10 py-6">
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-2 md:space-y-0">
             <div className="flex flex-wrap justify-center md:justify-start gap-6">
-              <Link href="#privacy" className="text-white/60 hover:text-white/80 text-xs transition-colors duration-200">
-                Privacy Policy
+              <Link href="#datenschutz" className="text-white/60 hover:text-secondary-500 text-xs transition-colors duration-200">
+                Datenschutz (DSGVO)
               </Link>
-              <Link href="#terms" className="text-white/60 hover:text-white/80 text-xs transition-colors duration-200">
-                Terms of Service
+              <Link href="#agb" className="text-white/60 hover:text-secondary-500 text-xs transition-colors duration-200">
+                AGB
               </Link>
-              <Link href="#cookies" className="text-white/60 hover:text-white/80 text-xs transition-colors duration-200">
-                Cookie Policy
+              <Link href="#impressum" className="text-white/60 hover:text-secondary-500 text-xs transition-colors duration-200">
+                Impressum
               </Link>
-              <Link href="#support" className="text-white/60 hover:text-white/80 text-xs transition-colors duration-200">
+              <Link href="#cookies" className="text-white/60 hover:text-secondary-500 text-xs transition-colors duration-200">
+                Cookie-Richtlinie
+              </Link>
+              <Link href="#support" className="text-white/60 hover:text-secondary-500 text-xs transition-colors duration-200">
                 Support
               </Link>
             </div>
             <div className="text-white/40 text-xs">
-              Last updated: January 2025
+              Letzte Aktualisierung: Januar 2025
             </div>
+          </div>
+        </div>
+
+        {/* Healthcare Compliance Notice */}
+        <div className="border-t border-white/10 py-4">
+          <div className="text-center">
+            <p className="text-white/50 text-xs">
+              Diese Plattform ist als Medizinprodukt der Klasse I nach MDR zertifiziert.
+              Alle Daten werden DSGVO-konform in Deutschland verarbeitet.
+            </p>
           </div>
         </div>
       </div>
