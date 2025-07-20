@@ -1,65 +1,66 @@
 export const themeConfig = {
-  // Color Palette extracted from MiniMax.io
+  // C2S Healthcare Color Palette
   colors: {
     primary: {
-      50: '#f0f9ff',
-      100: '#e0f2fe',
-      200: '#bae6fd',
-      300: '#7dd3fc',
-      400: '#38bdf8',
-      500: '#47a2f8', // Main blue from MiniMax
-      600: '#0284c7',
-      700: '#0369a1',
-      800: '#075985',
-      900: '#13253c', // Dark blue from MiniMax
+      50: '#e6f1f7',
+      100: '#cce3ef',
+      200: '#99c7df',
+      300: '#66abcf',
+      400: '#338fbf',
+      500: '#1278B3', // C2S Hellblau (Hauptfarbe)
+      600: '#0f6090',
+      700: '#0c486c',
+      800: '#093048',
+      900: '#004166', // C2S Dunkelblau
     },
     secondary: {
-      50: '#fef2f2',
-      100: '#fee2e2',
-      200: '#fecaca',
-      300: '#fca5a5',
-      400: '#f87171',
-      500: '#ea4e51', // Red accent from MiniMax
-      600: '#dc2626',
-      700: '#b91c1c',
-      800: '#991b1b',
-      900: '#7f1d1d',
+      50: '#f9f8e6',
+      100: '#f3f1cc',
+      200: '#e7e399',
+      300: '#dbd566',
+      400: '#cfc733',
+      500: '#B3AF09', // C2S Grün
+      600: '#8f8c07',
+      700: '#6b6905',
+      800: '#474604',
+      900: '#232302',
     },
     accent: {
-      50: '#fffbeb',
-      100: '#fef3c7',
-      200: '#fde68a',
-      300: '#fcd34d',
-      400: '#fbbf24',
-      500: '#e2af4a', // Yellow/Orange accent from MiniMax
-      600: '#d97706',
-      700: '#b45309',
-      800: '#92400e',
-      900: '#78350f',
+      50: '#e6f4f7',
+      100: '#cce9ef',
+      200: '#99d3df',
+      300: '#66bdcf',
+      400: '#33a7bf',
+      500: '#0091BD', // C2S Akzent Hellblau
+      600: '#007497',
+      700: '#005771',
+      800: '#003a4b',
+      900: '#001d25',
     },
     neutral: {
-      50: '#faf9fa', // Light background from MiniMax
-      100: '#f5f5f5',
-      200: '#e5e5e5',
-      300: '#d4d4d4',
-      400: '#a3a3a3',
-      500: '#737373',
-      600: '#525252',
-      700: '#404040',
-      800: '#262626',
-      900: '#171717',
+      50: '#f8fafb',
+      100: '#f1f5f9',
+      200: '#e2e8f0',
+      300: '#cbd5e1',
+      400: '#94a3b8',
+      500: '#64748b',
+      600: '#475569',
+      700: '#334155',
+      800: '#1e293b',
+      900: '#0f172a',
     },
-    supporting: {
-      lightBlue: '#a0bbd5',
-      peach: '#e99197',
-      lightYellow: '#eecf94',
-      gray: '#c2c7c9'
+    healthcare: {
+      deepBlue: '#001F30', // C2S Tiefblau/Schatten für Footer
+      white: '#ffffff',
+      cardBg: 'rgba(255, 255, 255, 0.95)',
+      glassBg: 'rgba(255, 255, 255, 0.1)',
+      glassBlur: 'rgba(18, 120, 179, 0.1)',
     }
   },
 
-  // Typography - Poppins font family from MiniMax
+  // Roboto Condensed Typography
   fonts: {
-    sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+    sans: ['Roboto Condensed', 'Arial Narrow', 'system-ui', 'sans-serif'],
     mono: ['Monaco', 'Cascadia Code', 'Segoe UI Mono', 'monospace'],
   },
   fontWeights: {
@@ -68,9 +69,10 @@ export const themeConfig = {
     medium: '500',
     semibold: '600',
     bold: '700',
+    extrabold: '800',
   },
 
-  // Spacing and sizing
+  // Healthcare-optimized spacing
   spacing: {
     xs: '0.5rem',
     sm: '1rem',
@@ -81,69 +83,99 @@ export const themeConfig = {
     '3xl': '6rem',
   },
 
-  // Border radius
+  // Professional border radius
   borderRadius: {
     sm: '0.375rem',
     md: '0.5rem',
     lg: '0.75rem',
     xl: '1rem',
     '2xl': '1.5rem',
+    card: '16px', // Karten-Rundung
+    button: '12px', // Button-Rundung
     full: '9999px',
   },
 
-  // Animation settings
+  // Smooth animations for professional feel
   animations: {
     morphing: {
-      duration: '8s',
+      duration: '8s', // Normal speed
       timingFunction: 'ease-in-out',
       iterationCount: 'infinite',
     },
     slider: {
-      duration: '0.5s',
+      duration: '0.5s', // Normal transition
       timingFunction: 'ease-out',
     },
     hover: {
       duration: '0.3s',
       timingFunction: 'ease-in-out',
     },
+    glassmorphism: {
+      duration: '0.4s',
+      timingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    }
   },
 
-  // Component specific settings
+  // Healthcare-specific component settings
   components: {
     hero: {
-      gradientColors: ['#47a2f8', '#13253c', '#a0bbd5'],
+      gradientColors: ['rgba(18, 120, 179, 0.8)', 'rgba(0, 65, 102, 0.9)', 'rgba(0, 145, 189, 0.7)'],
       morphingShapes: {
-        count: 3,
-        sizes: ['120px', '80px', '60px'],
-        opacities: [0.8, 0.6, 0.4],
+        count: 5, // Anzahl der morphenden Formen
+        sizes: ['200px', '150px', '120px', '100px', '80px'],
+        opacities: [0.3, 0.25, 0.2, 0.15, 0.1],
+      },
+      ekgLine: {
+        color: '#B3AF09',
+        width: '2px',
+        opacity: 0.6,
       }
     },
     cards: {
-      shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-      hoverShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-      borderRadius: '1rem',
+      shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+      hoverShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+      borderRadius: '16px',
+      glassBg: 'rgba(255, 255, 255, 0.1)',
+      backdropBlur: '12px',
     },
     buttons: {
       primary: {
-        bg: '#47a2f8',
-        hover: '#0284c7',
-        text: 'white',
+        bg: '#1278B3',
+        hover: '#004166',
+        text: '#ffffff',
+        borderRadius: '12px',
       },
       secondary: {
-        bg: 'white',
-        hover: '#f8fafc',
-        text: '#13253c',
-        border: '1px solid #e2e8f0',
+        bg: '#B3AF09',
+        hover: '#8f8c07',
+        text: '#ffffff',
+        borderRadius: '12px',
+      },
+      glass: {
+        bg: 'rgba(255, 255, 255, 0.1)',
+        hover: 'rgba(255, 255, 255, 0.2)',
+        text: '#ffffff',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
+        backdrop: 'blur(10px)',
       }
     },
     navigation: {
       height: '80px',
-      backdrop: 'rgba(255, 255, 255, 0.8)',
+      backdrop: 'rgba(0, 65, 102, 0.9)', // Glassmorphism
       blur: '12px',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+    },
+    branding: {
+      companyName: 'zweitmein.ng',
+      tagline: 'complex care solutions',
+      logoColors: {
+        primary: '#1278B3',
+        accent: '#B3AF09',
+      }
     }
   },
 
-  // Breakpoints for responsive design
+  // Responsive breakpoints
   breakpoints: {
     sm: '640px',
     md: '768px',
@@ -151,4 +183,22 @@ export const themeConfig = {
     xl: '1280px',
     '2xl': '1536px',
   },
+
+  // Healthcare gradients for different components
+  gradients: {
+    research: {
+      card1: ['#1278B3', '#004166'], // Video Model
+      card2: ['#0091BD', '#1278B3'], // Text Model
+      card3: ['#B3AF09', '#8f8c07'], // Audio Model
+      card4: ['#004166', '#001F30'], // MCP
+    },
+    products: {
+      chat: ['#1278B3', '#0091BD'],
+      agent: ['#004166', '#1278B3'],
+      video: ['#0091BD', '#B3AF09'],
+      audio: ['#B3AF09', '#1278B3'],
+      videoAgent: ['#004166', '#B3AF09'],
+      talkie: ['#1278B3', '#004166'],
+    }
+  }
 }

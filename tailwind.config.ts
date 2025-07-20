@@ -8,7 +8,7 @@ const config: Config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-  ],
+	],
   prefix: "",
   theme: {
     container: {
@@ -41,7 +41,7 @@ const config: Config = {
           ...themeConfig.colors.accent,
         },
         neutral: themeConfig.colors.neutral,
-        supporting: themeConfig.colors.supporting,
+        healthcare: themeConfig.colors.healthcare,
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -72,6 +72,8 @@ const config: Config = {
         "sm": "calc(var(--radius) - 4px)",
         "xl": themeConfig.borderRadius.xl,
         "2xl": themeConfig.borderRadius['2xl'],
+        "card": themeConfig.borderRadius.card,
+        "button": themeConfig.borderRadius.button,
         "full": themeConfig.borderRadius.full,
       },
       keyframes: {
@@ -108,6 +110,18 @@ const config: Config = {
         slideRight: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(0)' }
+        },
+        ekgPulse: {
+          '0%': { transform: 'scaleY(1)' },
+          '5%': { transform: 'scaleY(3)' },
+          '10%': { transform: 'scaleY(1)' },
+          '15%': { transform: 'scaleY(2)' },
+          '20%': { transform: 'scaleY(1)' },
+          '100%': { transform: 'scaleY(1)' }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' }
         }
       },
       animation: {
@@ -115,9 +129,18 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         'morphing': `morphing ${themeConfig.animations.morphing.duration} ${themeConfig.animations.morphing.timingFunction} ${themeConfig.animations.morphing.iterationCount}`,
         'slide-left': `slideLeft ${themeConfig.animations.slider.duration} ${themeConfig.animations.slider.timingFunction}`,
-        'slide-right': `slideRight ${themeConfig.animations.slider.duration} ${themeConfig.animations.slider.timingFunction}`
+        'slide-right': `slideRight ${themeConfig.animations.slider.duration} ${themeConfig.animations.slider.timingFunction}`,
+        'ekg-pulse': 'ekgPulse 2s ease-in-out infinite',
+        'float': 'float 3s ease-in-out infinite',
       },
       screens: themeConfig.breakpoints,
+      backgroundImage: {
+        'healthcare-gradient': `linear-gradient(135deg, ${themeConfig.colors.primary[500]} 0%, ${themeConfig.colors.primary[900]} 50%, ${themeConfig.colors.accent[500]} 100%)`,
+        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+      },
+      backdropBlur: {
+        'glass': '12px',
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import ClientBody from "./ClientBody";
 import Script from "next/script";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const robotoCondensed = Roboto_Condensed({
+  variable: "--font-roboto-condensed",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "MiniMax AI | AGI-Powered Foundation Models & Voice/Text/Image/Video Tools",
-  description: "Build with next-gen AGI: MiniMax offers Foundation AI models (text/audio/image/video). Power products like Talkie, Hailuo AI & enterprise APIs. Scalable, secure AI solutions for 50K+ global businesses.",
+  title: "zweitmein.ng | complex care solutions - Healthcare AI Technology",
+  description: "Professional healthcare solutions powered by advanced AI technology. zweitmein.ng offers complex care solutions with modern, secure, and scalable AI models for healthcare professionals.",
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable}`}>
+    <html lang="de" className={`${robotoCondensed.variable}`}>
       <head>
         <Script
           crossOrigin="anonymous"
